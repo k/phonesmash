@@ -5,7 +5,7 @@
 
 
 // if user accesses site from mobile device, route here
-exports.generate_session = function(req, res) {
+exports.index = function(req, res) {
 	res.render('mobile', { title: 'Phonesmash' });
 	
 };

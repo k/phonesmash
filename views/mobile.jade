@@ -1,3 +1,8 @@
 extends layout
 
-h1 Mobile View!
+block content
+	h1 Mobile View!
+
+	form(action="/start/verify", method="post", accept-charset="utf-8")
+		input(type="text", name="name")
+		input(type="submit", value="Submit")
