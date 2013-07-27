@@ -7,8 +7,8 @@ var express = require('express'),
 		routes = require('./routes'),
 		session = require('./routes/session'),
 		http = require('http'),
-		path = require('path');
-        io = require('socket.io');
+		path = require('path'),
+    io = require('socket.io');
 
 var app = express();
 
@@ -31,7 +31,6 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/start', session.index);
 app.post('/start/verify', session.verify);
-
 
 function handler (req, res) {
     fs.readfile(__direname  + '/index.html',
