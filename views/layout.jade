@@ -4,9 +4,8 @@ html
     title= title
     //- TODO: Add in mobile width 
     <!-- meta(name='viewport', content='width') -->
-    link(rel='stylesheet', href='assets/css/foundation.css')
     link(rel='stylesheet', href='assets/css/application.css')
-    script(type="text/javascript", src="assets/js/application.js") 
+    link(rel='stylesheet', href='assets/css/foundation.css')     
     script(type="text/javascript", src="assets/js/jquery-1.10.2.min.js") 
     script(type="text/javascript", src="socket.io/socket.io.js") 
     script.
@@ -15,5 +14,7 @@ html
         console.log(data);
         socket.emit('my other event', { my: 'data' });
       });
+
+    block header
   body
     block content
