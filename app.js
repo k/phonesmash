@@ -8,6 +8,7 @@ var express = require('express'),
 		session = require('./routes/session'),
 		http = require('http'),
 		path = require('path');
+        io = require('socket.io');
 
 var app = express();
 
@@ -32,6 +33,30 @@ app.get('/start', session.index);
 app.post('/start/verify', session.verify);
 
 
-http.createServer(app).listen(app.get('port'), function(){
+function handler (req, res) {
+    fs.readfile(__direname  + '/index.html',
+    function (err, data) {
+        if (err) {
+            res.writeHead(500);
+            return res.end('Error loading index.html');
+        }
+
+        res.writeHead(200);
+        res.end(data);
+    });
+}
+
+var server = http.createServer(app);
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+var smashio = io.listen(server);
+
+smashio.sockets.on('connection', function (socket) {
+    console.log('connection made');
+    socket.emit('news', {hello: 'world' });
+    socket.on('my other event', function (data) {
+        console.log(data);
+    });
 });
