@@ -4,5 +4,13 @@
  */
 
 exports.index = function(req, res){
-  res.render('desktop', { title: 'Phonesmash' });
+
+	var ua = req.header('user-agent');
+
+	if(/mobile/i.test(ua)) {
+	  res.render('mobile');
+	} else {
+  	res.render('desktop', { title: 'Phonesmash' });
+  }
+
 };

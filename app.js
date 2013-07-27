@@ -32,7 +32,6 @@ app.get('/', routes.index);
 app.get('/start', session.index);
 app.post('/start/verify', session.verify);
 
-
 function handler (req, res) {
     fs.readfile(__direname  + '/index.html',
     function (err, data) {
