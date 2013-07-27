@@ -16,7 +16,7 @@ module.exports = function(grunt){
         sass: {
             dist: {
                 files: {
-                    'public/stylesheets/styles.css': 'public/stylesheets/styles.scss'
+                    'assets/css/application.css': 'assets/css/application.scss'
                 }
             }
         }
