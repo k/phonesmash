@@ -54,7 +54,6 @@ server.listen(app.get('port'), function(){
 var smashio = io.listen(server);
 
 smashio.sockets.on('connection', function (socket) {
-    console.log('connection made');
     socket.emit('news', {hello: 'world' });
     socket.on('my other event', function (data) {
         console.log(data);
