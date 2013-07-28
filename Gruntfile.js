@@ -19,7 +19,7 @@ module.exports = function(grunt){
             dist: {
                 files: {
                     'assets/css/application.css': 'assets/css/application.scss',
-                    'assets/css/smash.css': 'assets/css/smash.scss'
+                    'assets/css/mobile.css': 'assets/css/mobile.scss'
                 }
             }
         }

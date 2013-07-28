@@ -8,9 +8,17 @@ $('#session_id').append(roomID);
 socket.emit('desktopConnect', roomID);
 
 // if join successful, log the success
-socket.on('desktopReady', function(msg){
+socket.on('desktopReady', function(msg) {
 	console.log(msg);
 });
+
+// once someone connects, change the page to the competition view
+socket.on('mobileReady', function(msg) {
+	console.log("here");
+	$('.homepage').hide();
+	$('.compete').show();
+});
+
 
 socket.on('started', function(time) {
     // update UI

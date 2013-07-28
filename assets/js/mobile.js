@@ -1,6 +1,5 @@
 var socket = io.connect('/');
 
-
 // gets called on mobile form submit
 function joinSession(roomID) {
 	// TODO fix this
@@ -14,8 +13,8 @@ function joinSession(roomID) {
 }
 
 function renderThrowView () {
-	$('#start-session').hide();
-	$('#throw').show();
+	$('.start-session').hide();
+	$('.throw').show();
     startUp();
 }
 

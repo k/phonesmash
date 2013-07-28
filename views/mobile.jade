@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-  div#start-session
+  div.start-session
     div.row
       div.small-12.small-centered.columns#header
         h1 phonesma.sh 
@@ -14,7 +14,7 @@ block content
         div(id="button", onclick="joinSession($('#session_submit').val())") SMASH
 
 
-  div#throw
+  div.throw
     canvas#starter Sweet
 
   script(type="text/javascript", src="assets/js/mobile.js")
