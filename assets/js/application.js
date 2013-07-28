@@ -17,26 +17,18 @@ var players = {}
 // once someone connects, change the page to the competition view
 socket.on('mobileReady', function(data) {
 
-	// players[data.name] = data;
+	players[data.username] = data;
 
-	// // change desktop view on first connection
-	// if (players.keys.length === 1) {
-	// 	$('.homepage').hide();
-	// 	$('.compete').show();
-	// }
-	// 
-	$('.homepage').hide();
-	$('.compete').show();
-	
-	var testData = {
-		name : "Evan",
-		stuff: "stuff"
-	};
+	// change desktop view on first connection
+	if (Object.keys(players).length === 1) {
+		$('.homepage').hide();
+		$('.compete').show();
+	}
 
 	// give the new user a panel
-	$('.compete').append('<div class=\"panel\" id=\'' + testData.name + '\' data=\'' + testData + '\'><\/div>');
+	$('.compete').append('<div class=\"panel\" id=\'' + data.username + '\' data=\'' + data + '\'><\/div>');
 
-	$('#' + testData.name).append(testData.name);
+	$('#' + data.username).append(data.username);
 
 	
 	

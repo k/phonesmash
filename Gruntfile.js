@@ -7,8 +7,6 @@ module.exports = function(grunt){
                 options: {
                   file: 'app.js', 
                   ignoredFiles: ['README.md', 'node_modules/**'],
-                  watchedExtensions: ['js', 'coffee'],
-                  watchedFolders: ['assets/js'],
                 }
             },
         },
