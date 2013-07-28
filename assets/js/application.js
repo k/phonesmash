@@ -1,6 +1,6 @@
 var socket = io.connect('/'),
 		roomID = Math.round(Math.random()*6969).toString(),  // create a random session ID 
-		players = {};
+		players = [];
 
 $('#session_id').append(roomID);
 
@@ -15,7 +15,7 @@ socket.on('desktopReady', function(msg) {
 // once someone connects, change the page to the competition view
 socket.on('mobileReady', function(data) {
 
-	players[data.username] = data;
+	players.push(data);
 
 	// change desktop view on first connection
 	if (Object.keys(players).length === 1) {
@@ -32,6 +32,26 @@ socket.on('mobileReady', function(data) {
 socket.on('started', function(time) {
     // update UI
 });
-socket.on('elapsed', function(time) {
-    // update UI
+
+socket.on('elapsed', function(data) {
+	var lowestTime = players[0].time,
+			lowestIndex, 
+			currentIndex;
+
+	// iterate to find the current players index
+	$.each(players, function(index, value) {		
+		if (value.name === data.name) {
+			currentIndex = index;
+		}
+	});
+
+	// update the players index
+	players[currentIndex].time = data.time
+	$('.compete .panel').remove();
+
+	$.each(players, function(index, value) {		
+		$('.compete').append('<div class=\"panel player\" id=\'' + value.username + '\' data=\'' + data + '\'><\/div>');
+		$('#' + value.username).append(value.username);
+	});
+   
 });
