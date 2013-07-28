@@ -25,4 +25,5 @@ a {
     padding: 3em 3.8em;
     background-color: green;
     font-size: 1em;
-    line-height: 5em; }
+    line-height: 5em;
+    border: 0; }

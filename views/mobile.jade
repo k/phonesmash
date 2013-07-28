@@ -10,9 +10,8 @@ block content
     div.small-8.small-centered.columns#mobile-content
       div
         form(method="post", action="start/verify")
-          input(type="text", name="name", placeholder="0000", id="session_submit")   
-          div      
-            input(type="submit", id="button", onclick="joinSession($('#session_submit').val())") 
+          input(type="text", name="name", placeholder="0000", id="session_submit")      
+          input(type="submit", id="button", onclick="joinSession($('#session_submit').val())") 
 
 
   script(type="text/javascript", src="assets/js/mobile.js")
