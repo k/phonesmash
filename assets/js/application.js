@@ -65,16 +65,17 @@ socket.on('started', function(data) {
 			}
 		}
 
+
+		var time = data.elapsedTime;
 		players.sort(compare);
 
 		$('.panel.player').remove();
 
-		$.each(players, function(index, value) {		
-			console.log('here');
-			$('.player-list').append('<div class=\"panel player\" id=\'' + value.username + '\'><span class="name"></span><span class="time"></span><\/div>');
-			$('#' + value.username + ' .name').append(value.username);
-			$('#' + value.username + ' .time').append(value.time);
-		});
+		for(var i = 0; i < players.length; i++) {
+			$('.player-list').append('<div class=\"panel player\" id=\'' + players[i].username + '\'><span class="name"></span><span class="time"></span><\/div>');
+			$('#' + players[i].username + ' .name').append(players[i].username);
+			$('#' + players[i].username + ' .time').append(players[i].time);
+		}
 	   
 	});
 
