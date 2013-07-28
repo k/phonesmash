@@ -1,11 +1,11 @@
 #header {
   text-align: center;
   img {
-    margin-bottom: 5%;
+    margin: 5%;
   }
 
   p {
-    font-size: 3em;
+    font-size: 1em;
     line-height: 0.02em;
   }
 }
@@ -15,7 +15,7 @@ form {
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
   
   #session-id {
-    font-size: 8em;
+    font-size: 3em;
     height: 1.2em;
     padding: 0 0.12em 0;
     margin-bottom: 5%;
@@ -23,7 +23,7 @@ form {
   }
 
   #username {
-    font-size: 6em;
+    font-size: 2em;
     height: 1.2em;
     padding: 0 0.12em 0;
     margin-bottom: 5%;
@@ -37,7 +37,7 @@ form {
   // -webkit-appearance: button;
   padding: 10% 10%;
   background-color: #E81373;
-  font-size: 5em;
+  font-size: 3em;
   // line-height: 5em;
   border: 0;
   }

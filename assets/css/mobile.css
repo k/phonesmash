@@ -1,22 +1,22 @@
 #header {
   text-align: center; }
   #header img {
-    margin-bottom: 5%; }
+    margin: 5%; }
   #header p {
-    font-size: 3em;
+    font-size: 1em;
     line-height: 0.02em; }
 
 form {
   text-align: center;
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica"; }
   form #session-id {
-    font-size: 8em;
+    font-size: 3em;
     height: 1.2em;
     padding: 0 0.12em 0;
     margin-bottom: 5%;
     text-align: center; }
   form #username {
-    font-size: 6em;
+    font-size: 2em;
     height: 1.2em;
     padding: 0 0.12em 0;
     margin-bottom: 5%;
@@ -26,7 +26,7 @@ form {
     display: block;
     padding: 10% 10%;
     background-color: #E81373;
-    font-size: 5em;
+    font-size: 3em;
     border: 0; }
 
 .throw {
