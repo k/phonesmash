@@ -6,6 +6,7 @@ $('#session_id').append(roomID);
 
 socket.on('user disconnected', function(data) {
     // remove user from data.username
+    $('#'+data.username).remove();
     console.log(data);
 });
 
