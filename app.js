@@ -54,7 +54,7 @@ var smashio = io.listen(server);
 
 smashio.sockets.on('connection', function (socket) {
 
-    smashio.sockets.on('join', function (sessionID) {
+    socket.on('join', function (sessionID) {
         console.log('the server recieve "join" ');
     });
 
