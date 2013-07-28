@@ -1,38 +1,33 @@
 #header {
   text-align: center; }
-  #header h1 {
-    font-size: 8em;
-    line-height: 1em; }
+  #header img {
+    margin: 5%; }
   #header p {
-    font-size: 3em;
+    font-size: 1em;
     line-height: 0.02em; }
 
-#mobile-content {
-  text-align: center; }
-  #mobile-content #session-id {
-    font-size: 8em;
-    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+form {
+  text-align: center;
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica"; }
+  form #session-id {
+    font-size: 3em;
     height: 1.2em;
     padding: 0 0.12em 0;
-    margin-bottom: 75px;
+    margin-bottom: 5%;
     text-align: center; }
-  #mobile-content #username {
-    font-size: 8em;
-    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+  form #username {
+    font-size: 2em;
     height: 1.2em;
     padding: 0 0.12em 0;
-    margin-bottom: 75px;
+    margin-bottom: 5%;
     text-align: center; }
-
-#button {
-  color: white;
-  display: inline-block;
-  border-radius: 18em;
-  padding: 1em 1.75em;
-  background-color: green;
-  font-size: 4em;
-  line-height: 5em;
-  border: 0; }
+  form #button {
+    color: white;
+    display: block;
+    padding: 10% 10%;
+    background-color: #E81373;
+    font-size: 3em;
+    border: 0; }
 
 .throw {
   display: none; }
