@@ -1,9 +1,38 @@
 body {
   padding: 50px;
   font: "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: red;
 }
 
 a {
   color: blue;
+}
+
+#header {
+  
+text-align: center;
+}
+
+#mobile-content {
+  text-align: center;
+  
+  div#form {
+    // border: solid red 3px;
+    height: 150px;
+    input {
+      font-size: 130pt;
+      font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+      height: 4em;
+      padding: 20px;
+    }
+    
+  }
+
+  div#button {
+
+  }
+  
+}
+
+#button {
+  
 }
