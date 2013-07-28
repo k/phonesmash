@@ -66,7 +66,7 @@ smashio.sockets.on('connection', function (socket) {
         socket.set('roomID', data.roomID, function(err, roomID) {
             socket.join(roomID) ;
             socket.set('username', name, function(err, username) {
-                socket.broadcast.to(roomID).emit('mobileReady', name);
+                socket.broadcast.to(roomID).emit('mobileReady', data);
             });
         });        
     });
