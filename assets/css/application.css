@@ -6,7 +6,8 @@ a {
   color: blue; }
 
 #starter {
-  border: 1px solid #000000; }
+  background-color: red;
+  border: 1px solid #111111; }
 
 #header {
   text-align: center; }
