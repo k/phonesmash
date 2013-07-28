@@ -30,8 +30,10 @@ socket.on('mobileReady', function(data) {
 });
 
 socket.on('started', function(time) {
+    console.log(time);
     // update UI
 });
 socket.on('elapsed', function(time) {
+    console.log(time);
     // update UI
 });

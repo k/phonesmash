@@ -11,12 +11,7 @@ function joinSession(roomID, userName) {
         // tell the server we want to connect
   socket.emit('mobileConnect', {'roomID': roomID, 'username': userName});
 
-  data = {
-    'roomID' : roomID,
-    'username' : userName
-  }
-
-  startUp(data);
+  startUp();
 
         // show throw ID and continue
 
@@ -32,24 +27,23 @@ function renderConnectionError() {
     $('#errors').show();
 }
 
-function startUp(data) {
+function startUp() {
 
     $('#start-session').hide();
     $('#throw').show(); 
     
     elm = document.getElementById('throw');
-    elm.addEventListener('touchstart', function() { startHandler(data) }, false);
-    elm.addEventListener('touchend', function() { endHandler(data) }, false);
+    elm.addEventListener('touchstart', startHandler, false);
+    elm.addEventListener('touchend', endHandler, false);
 }
 
-function startHandler(event, data) {
-    console.log("startHandler");
+function startHandler(event) {
     socket.emit('testing', "touch started");
     event.preventDefault();
     holdingUI();
 }
 
-function endHandler(event, data) {
+function endHandler(event) {
     socket.emit('testing', "touch ended");
     event.preventDefault();
     measureTime();

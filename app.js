@@ -54,9 +54,10 @@ var smashio = io.listen(server);
 smashio.sockets.on('connection', function (socket) {
 
     socket.on('desktopConnect', function(roomID) {        
-        socket.set('roomID', roomID, function(err, roomID) {
-            socket.join(roomID);
-            socket.in(roomID).emit('desktopReady', roomID);    
+        socket.set('roomID', roomID, function() {
+            console.log(roomID);
+            if (socket.join(roomID))
+                socket.in(roomID).emit('desktopReady', roomID);    
         });     
     });
 
@@ -68,23 +69,39 @@ smashio.sockets.on('connection', function (socket) {
 
     socket.on('mobileConnect', function(data) {
         var name = data.username;
-        socket.set('roomID', data.roomID, function(err, roomID) {
-            socket.join(roomID);
-            socket.set('username', name, function(err, username) {
-                socket.broadcast.to(roomID).emit('mobileReady', data);
+        socket.set('roomID', data.roomID, function() {
+            socket.join(data.roomID);
+            socket.set('username', name, function() {
+                socket.broadcast.to(data.roomID).emit('mobileReady', data);
             });
         });        
     });
 
-    socket.on('startTime', function(time) {
+    socket.on('startTime', function(startTime) {
         socket.get('roomID', function (err, roomID) {
-            socket.in(roomID).emit('started', time);
+            socket.get('username', function (err, username) {
+                console.log(username);
+                var data = {
+                    'roomID': roomID,
+                    'username': username,
+                    'startTime': startTime
+                };
+                socket.in(roomID).emit('started', data);
+            });
         });
     });
 
-    socket.on('elapsedTime', function(time) {
+    socket.on('elapsedTime', function(elapsedTime) {
         socket.get('roomID', function (err, roomID) {
-            socket.in(roomID).emit('elapsed', time);
+            socket.get('username', function (err, username) {
+                console.log(username);
+                var data = {
+                    'roomID': roomID,
+                    'username': username,
+                    'elapsedTime': elapsedTime
+                };
+                socket.in(roomID).emit('elapsed', data);
+            });
         });
     });
 
