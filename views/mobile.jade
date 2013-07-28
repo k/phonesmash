@@ -3,18 +3,24 @@ extends layout
 block content
 
   div.start-session
-    div.row
-      div.small-12.small-centered.columns#header
-        h1#title phonesma.sh 
-        p Enter your session ID below.
-        div.small-8.small-centered.columns#mobile-content
+    div.row#header
+      div.small-12.small-centered.columns
+        img(src="assets/images/phonesmash_logo.png")
+        p Enter your session ID and name below.
+
+    form
+      div.row
+        div.small-8.small-centered.columns
           input(type="text", name="name", placeholder="####", id="session-id")      
 
-        p Enter your name.
-        div.small-8.small-centered.columns#mobile-content
-          input(type="text", name="name", placeholder="####", id="username")    
+      div.row
+        div.small-8.small-centered.columns
+          input(type="text", name="name", placeholder="YOUR NAME", id="username")    
 
-        div(id="button", onclick="joinSession($('#session-id').val(),$('#username').val())") SMASH
+      div.row
+        div.small-5.small-centered.columns
+          div(id="button", onclick="joinSession($('#session-id').val(),$('#username').val())") 
+            strong SMASH
 
   div#throw
     h2#throw-text press and hold the screen to begin
