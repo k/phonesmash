@@ -53,18 +53,23 @@ var smashio = io.listen(server);
 
 smashio.sockets.on('connection', function (socket) {
 
-    socket.on('desktopConnect', function(roomID) {
-        var msg = 'desktop joined the room!';
+    socket.on('desktopConnect', function(roomID) {        
         socket.set('roomID', roomID, function(err, roomID) {
             socket.join(roomID);
-            socket.in(roomID).emit('desktopReady', msg);    
+            socket.in(roomID).emit('desktopReady', roomID);    
         });     
+    });
+
+    socket.on('checkRoom', function() {
+        socket.get('roomID', function(err, roomID) {
+            socket.in(roomID).emit('getRoomID', roomID);
+        });
     });
 
     socket.on('mobileConnect', function(data) {
         var name = data.username;
         socket.set('roomID', data.roomID, function(err, roomID) {
-            socket.join(roomID) ;
+            socket.join(roomID);
             socket.set('username', name, function(err, username) {
                 socket.broadcast.to(roomID).emit('mobileReady', data);
             });

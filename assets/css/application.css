@@ -13,15 +13,11 @@ a {
 #title {
   padding-top: 50px; }
 
-#throw {
-  width: 100%;
-  height: 100%;
-  background-color: #FF5B22;
-  display: none; }
-
-#throw-text {
-  color: white;
-  padding: 40px; }
-
 .compete {
   display: none; }
+
+.player {
+  width: 500px; }
+
+.compete {
+  margin-left: 50px; }

@@ -35,6 +35,25 @@
   
 }
 
+#throw {
+  width: 100%;
+  height: 100%;
+  background-color:#FF5B22;
+  display: none;
+}
+
+#throw-text{
+  color: white;
+  padding:40px;
+}
+
+#errors {
+  display: none;
+}
+
+#errors-text {
+  color: #FF0000;
+}
 
 #button {
   color: white;

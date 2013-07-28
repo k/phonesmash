@@ -2,43 +2,52 @@ var socket = io.connect('/');
 
 // gets called on mobile form submit
 function joinSession(roomID, userName) {
-	// TODO fix this
-	if (roomID === "") {
-		location.reload();
-	} else {
-		// tell the server we want to connect
-		socket.emit('mobileConnect', {'roomID': roomID, 'username': userName});
 
-        // TODO: do something with userName
-		renderThrowView();
-	}
+    // make a call to fetch the roomID
+    // socket.emit('checkRoom');
+
+    // socket.on('getRoomID', function(currentRoomID) {
+    //   if (currentRoomID === roomID) {
+        // tell the server we want to connect
+  socket.emit('mobileConnect', {'roomID': roomID, 'username': userName});
+
+  socket.on('mobileReady', function(data) {
+    startUp(data);
+  });
+
+        // show throw ID and continue
+
+
+      // } else {
+      //    renderConnectionError();
+      // }
+  
+    // });
 }
 
-function renderThrowView () {
-	$('.start-session').hide();
-	$('#throw').show();
-    startUp();
+
+function renderConnectionError() {
+    $('#errors').show();
 }
 
-// if join successful, log the success
-socket.on('mobileReady', function(msg) {
-	console.log(msg);
-});
+function startUp(data) {
 
-
-function startUp() {
+    $('.start-session').hide();
+    $('#throw').show(); 
+    
     elm = document.getElementById('throw');
-    elm.addEventListener('touchstart', startHandler, false);
-    elm.addEventListener('touchend', endHandler, false);
+    elm.addEventListener('touchstart', function() { startHandler(data) }, false);
+    elm.addEventListener('touchend', function() { endHandler(data) }, false);
 }
 
-function startHandler(event) {
+function startHandler(event, data) {
+    console.log("startHandler");
     socket.emit('testing', "touch started");
     event.preventDefault();
     holdingUI();
 }
 
-function endHandler(event) {
+function endHandler(event, data) {
     socket.emit('testing', "touch ended");
     event.preventDefault();
     measureTime();
@@ -47,7 +56,7 @@ function endHandler(event) {
 
 function holdingUI() {
     $('#throw').css('background-color', '#E81373');
-    $('#throw-text').text('throw phone when ready')
+    $('#throw-text').text('throw phone when ready');
 }
 
 function flyingUI() {
