@@ -54,12 +54,17 @@ var smashio = io.listen(server);
 
 smashio.sockets.on('connection', function (socket) {
 
-    socket.on('join', function (sessionID) {
-        console.log('the server recieve "join" ');
+    socket.on('desktopConnect', function(roomID) {
+        var msg = 'desktop joined the room!';
+        if (socket.join(roomID)) {
+            socket.in(roomID).emit('desktopReady', msg);    
+        }        
     });
 
-    // socket.emit('news', {hello: 'world' });
-    // socket.on('my other event', function (data) {
-    //     console.log(data);
-    // });
+    socket.on('mobileConnect', function(roomID) {
+        var msg = 'mobile joined the room!';
+        if (socket.join(roomID)) {
+            socket.in(roomID).emit('mobileReady', msg);
+        }        
+    });
 });
