@@ -1,11 +1,11 @@
 extends layout
 
-block header
-	script(type="text/javascript", src="assets/js/mobile.js")
-
 block content
 	h1 Mobile View!
 
-	form(action="/start/verify", method="post", accept-charset="utf-8")
-		input(type="text", name="name")
-		input(type="submit", value="Submit")
+	div.row
+		div.large-2.columns
+			input(type="text", name="name", id="session_submit")			
+		button(type="submit", class="small button", onclick="joinSession($('#session_submit').val())") Submit
+
+	script(type="text/javascript", src="assets/js/mobile.js")
