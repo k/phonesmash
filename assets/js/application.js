@@ -28,6 +28,8 @@ socket.on('mobileReady', function(data) {
 		$('.compete').show();
 	}
 
+	$('#compete_id').text(roomID);
+
 	// give the new user a panel
 	$('.player-list').append('<div class=\"panel player\" id=\'' + data.username + '\'><span class="name"></span><span class="time"></span><\/div>');
 	$('#' + data.username + ' .name').append(data.username);

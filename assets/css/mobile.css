@@ -36,6 +36,12 @@ form {
   color: white;
   padding: 40px; }
 
+#restart-button {
+  width: 50%;
+  height: 10%;
+  background-color: #FFFFFF;
+  display: none; }
+
 #errors {
   display: none; }
 
