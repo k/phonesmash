@@ -51,3 +51,14 @@ a {
     color: #FFEA2A;
     margin: 0 0 50px 0;
     line-height: 1em; }
+  .compete .panel {
+    height: 4.75em;
+    padding: 1.25em;
+    text-transform: uppercase;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica"; }
+    .compete .panel .name {
+      float: left;
+      font-size: 2em; }
+    .compete .panel .time {
+      float: right;
+      font-size: 2em; }

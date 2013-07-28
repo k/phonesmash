@@ -68,6 +68,26 @@ a {
     margin: 0 0 50px 0;
     line-height: 1em;
   }
+
+  .panel{
+
+    height: 4.75em;
+    padding: 1.25em;
+    text-transform: uppercase;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
+
+    .name {
+      float: left;
+      font-size: 2em;
+    }
+
+    .time {
+      float: right;  
+      font-size: 2em;
+    }
+  }
 }
+
+
 
 
