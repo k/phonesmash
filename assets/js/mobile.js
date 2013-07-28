@@ -91,7 +91,7 @@ function measureTime(){
             var elaspedTime = endTime - startTime;
             
             socket.emit('testing', "time" + elaspedTime);
-            socket.emit('elaspedTime', elaspedTime);
+            socket.emit('elapsedTime', elaspedTime);
 
             $('#throw').css('background-color', '#E89913');
             $('#throw-text').text('your time was: ' + elaspedTime);

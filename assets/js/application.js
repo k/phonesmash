@@ -4,6 +4,11 @@ var socket = io.connect('/'),
 
 $('#session_id').append(roomID);
 
+socket.on('user disconnected', function(data) {
+    // remove user from data.username
+    console.log(data);
+});
+
 // tell server that we want to join
 socket.emit('desktopConnect', roomID);
 
