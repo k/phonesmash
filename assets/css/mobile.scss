@@ -15,8 +15,17 @@
 #mobile-content {
   text-align: center;
   
-  #session_submit {
-    font-size: 14em;
+  #session-id {
+    font-size: 8em;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+    height: 1.2em;
+    padding: 0 0.12em 0;
+    margin-bottom: 75px;
+    text-align: center;
+  }
+
+  #username {
+    font-size: 8em;
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
     height: 1.2em;
     padding: 0 0.12em 0;

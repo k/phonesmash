@@ -12,11 +12,34 @@ socket.on('desktopReady', function(msg) {
 	console.log(msg);
 });
 
+var players = {}
+
 // once someone connects, change the page to the competition view
-socket.on('mobileReady', function(msg) {
-	console.log("here");
+socket.on('mobileReady', function(data) {
+
+	// players[data.name] = data;
+
+	// // change desktop view on first connection
+	// if (players.keys.length === 1) {
+	// 	$('.homepage').hide();
+	// 	$('.compete').show();
+	// }
+	// 
 	$('.homepage').hide();
 	$('.compete').show();
+	
+	var testData = {
+		name : "Evan",
+		stuff: "stuff"
+	};
+
+	// give the new user a panel
+	$('.compete').append('<div class=\"panel\" id=\'' + testData.name + '\' data=\'' + testData + '\'><\/div>');
+
+	$('#' + testData.name).append(testData.name);
+
+	
+	
 });
 
 

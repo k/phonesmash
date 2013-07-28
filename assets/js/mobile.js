@@ -10,8 +10,6 @@ function joinSession(roomID, userName) {
 		socket.emit('mobileConnect', roomID);
 
         // TODO: do something with userName
-
-        // TODO: if first connection
 		renderThrowView();
 	}
 }
