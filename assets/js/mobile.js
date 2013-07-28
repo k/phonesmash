@@ -38,8 +38,8 @@ function startUp(data) {
     $('#throw').show(); 
     
     elm = document.getElementById('throw');
-    elm.addEventListener('touchstart', function() { startHandler(data) }, false);
-    elm.addEventListener('touchend', function() { endHandler(data) }, false);
+    elm.addEventListener('touchstart', startHandler, false);
+    elm.addEventListener('touchend', endHandler, false);
 }
 
 function startHandler(event, data) {
