@@ -29,24 +29,34 @@ socket.on('mobileReady', function(msg) {
 
 
 function startUp() {
-    el = document.getElementById('throw');
-    el.addEventListener('touchstart', function (event) {
-        socket.emit('testing', "touch started");
-        event.preventDefault();
-        $('#throw').css('background-color', 'blue');
-    }, false);
-    el.addEventListener('touchend', function (event) {
-        socket.emit('testing', "touch ended");
-        event.preventDefault();
-        $('#throw').css('background-color', 'green');
-        measureTime();
-    }, false);
+    elm = document.getElementById('throw');
+    elm.addEventListener('touchstart', startHandler, false);
+    elm.addEventListener('touchend', endHandler, false);
 }
 
-//    if (window.DeviceMotionEvent !== undefined) {
+function startHandler(event) {
+    socket.emit('testing', "touch started");
+    event.preventDefault();
+    holdingUI();
+}
+
+function endHandler(event) {
+    socket.emit('testing', "touch ended");
+    event.preventDefault();
+    measureTime();
+    flyingUI();
+}
+
+function holdingUI() {
+    $('#throw').css('background-color', 'blue');
+}
+
+function flyingUI() {
+    $('#throw').css('background-color', 'green');
+}
 
 var stoppingThreshold = 10;
-var stoppingDelta = 0.15;
+var stoppingDelta = 0.3;
 
 function measureTime(){ 
 
@@ -72,9 +82,12 @@ function measureTime(){
             // stop timer, report elapsed and stop collecting data
             var endTime = Date.now();
             var elaspedTime = endTime - startTime;
+            
+            socket.emit('testing', "time" + elaspedTime);
+
             socket.emit('elaspedTime', elaspedTime);
 
-            $('body').css('background-color', 'green');
+            $('#throw').css('background-color', 'black');
             window.ondevicemotion = null;
         }
         prevtime = now;
