@@ -46,10 +46,18 @@ form {
 }
 
 #restart-button{
-    width: 50%;
-    height: 10%;
-    background-color:#FFFFFF;
-    display:none;
+  width: 100%;
+  height: 35%;
+  background-color:#FFFFFF;
+  display:none;
+  position: absolute;
+  bottom: 0;
+}
+
+#restart-text{
+  color:black;
+  padding:40px;
+  padding-bottom:65px;  
 }
 
 #errors {
