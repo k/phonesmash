@@ -1,7 +1,8 @@
 #header {
   text-align: center; }
   #header img {
-    margin: 5%; }
+    margin-top: 3%;
+    margin-bottom: 5%; }
   #header p {
     font-size: 1em;
     line-height: 0.02em; }
@@ -20,13 +21,15 @@ form {
     height: 1.2em;
     padding: 0 0.12em 0;
     margin-bottom: 5%;
-    text-align: center; }
+    text-align: center;
+    text-transform: uppercase; }
   form #button {
     color: white;
     display: block;
     padding: 10% 10%;
     background-color: #E81373;
     font-size: 3em;
+    margin-bottom: 3%;
     border: 0; }
 
 .throw {
