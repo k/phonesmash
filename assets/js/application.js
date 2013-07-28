@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost');
+var socket = io.connect('http://phonesmash.herokuapp.com');
 
 // create a random session ID and append it to the DOM
 var roomID = Math.round(Math.random()*6969).toString();
