@@ -65,9 +65,7 @@ socket.on('started', function(data) {
 			}
 		}
 
-
-		var time = data.elapsedTime;
-		players.sort(compare);
+		players = players.sort(compare);
 
 		$('.panel.player').remove();
 
