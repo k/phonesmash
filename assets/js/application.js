@@ -54,27 +54,30 @@ socket.on('started', function(data) {
 	socket.on('elapsed', function(data) {
 		clearInterval(timer);
 
-		// var currentIndex;
+		$('#' + data.username).find('.time').text(data.elapsedTime);    				
 
-		// // iterate to find the current players index
-		// $.each(players, function(index, value) {		
-		// 	if (value.name === data.name) {
-		// 		currentIndex = index;
-		// 	}
-		// });
+		var currentIndex;
 
-		// // update the players index
-		// players[currentIndex].time = data.time
+		// iterate to find the current players index
+		$.each(players, function(index, value) {		
+			if (value.name === data.name) {
+				currentIndex = index;
+			}
+		});
 
-		// players.sort(compare);
+		// update the players index
+		players[currentIndex].time = data.elapsedTime;
 
-		// $('.panel .player').remove();
+		players.sort(compare);
 
-		// $.each(players, function(index, value) {		
-		// 	$('.player-list').append('<div class=\"panel player\" id=\'' + value.username + '\'><span id="name"></span><span id="time"></span><\/div>');
-		// 	$('#' + value.username + ' #name').append(value.username);
-		// 	$('#' + value.username + ' #time').append(value.time);
-		// });
+		$('.panel.player').remove();
+
+		$.each(players, function(index, value) {		
+			console.log('here');
+			$('.player-list').append('<div class=\"panel player\" id=\'' + value.username + '\'><span class="name"></span><span class="time"></span><\/div>');
+			$('#' + value.username + ' .name').append(value.username);
+			$('#' + value.username + ' .time').append(value.time);
+		});
 	   
 	});
 
