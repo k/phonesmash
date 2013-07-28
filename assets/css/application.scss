@@ -20,7 +20,13 @@ a {
   text-align: center;
 
   h1 {
-    font-size: 5em;
+    font-size: 8em;
+    line-height: 1em;
+  }
+
+  p {
+    font-size: 3em;
+    line-height: 0.02em;
   }
 }
 
@@ -28,7 +34,7 @@ a {
   text-align: center;
   
   #session_submit {
-    font-size: 11em;
+    font-size: 14em;
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
     height: 1.2em;
     padding: 0 0.12em 0;
@@ -41,10 +47,10 @@ a {
     display: inline-block;
     // might need this for mobile safari...
     // -webkit-appearance: button;
-    border-radius: 8em;
-    padding: 3em 3.8em;
+    border-radius: 18em;
+    padding: 1em 1.75em;
     background-color: green;
-    font-size: 1em;
+    font-size: 4em;
     line-height: 5em;
     border: 0;
   }
