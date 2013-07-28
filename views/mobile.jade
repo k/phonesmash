@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  canvas#starter
   div.row
     div.small-12.small-centered.columns#header
       h1 phonesma.sh 
@@ -10,6 +11,7 @@ block content
     div.small-8.small-centered.columns#mobile-content
       div#form
         input(type="text", name="name", placeholder="0000", id="session_submit")
-      a(href="#", class="small button", onclick="joinSession($('#session_submit').val())") SMASH
+      div#button
+        a(href="#", onclick="joinSession($('#session_submit').val())") SMASH
 
   script(type="text/javascript", src="assets/js/mobile.js")

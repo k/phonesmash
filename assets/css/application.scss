@@ -7,9 +7,16 @@ a {
   color: blue;
 }
 
+#starter {
+  border: 1px solid #000000;
+}
+
 #header {
-  
-text-align: center;
+  text-align: center;
+
+  h1 {
+    font-size: 55pt;
+  }
 }
 
 #mobile-content {
@@ -17,18 +24,24 @@ text-align: center;
   
   div#form {
     // border: solid red 3px;
-    height: 150px;
+    height: 200px;
     input {
-      font-size: 130pt;
+      font-size: 110pt;
       font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
-      height: 4em;
-      padding: 20px;
+      height: 1.2em;
+      padding: 0px 20px 10px;
     }
     
   }
 
-  div#button {
-
+  a {
+    display: inline-block;
+    border-radius: 40px;
+    padding: 30px 15px;
+    background-color: green;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    float: right;
   }
   
 }
