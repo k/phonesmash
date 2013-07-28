@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -32,11 +33,14 @@ a {
     height: 1.2em;
     padding: 0 0.12em 0;
     margin-bottom: 75px;
+    text-align: center;
   }
 
   #button {
     color: white;
     display: inline-block;
+    // might need this for mobile safari...
+    // -webkit-appearance: button;
     border-radius: 8em;
     padding: 3em 3.8em;
     background-color: green;

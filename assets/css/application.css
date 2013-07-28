@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%; }
 
 a {
   color: blue; }
@@ -23,7 +24,8 @@ a {
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
     height: 1.2em;
     padding: 0 0.12em 0;
-    margin-bottom: 75px; }
+    margin-bottom: 75px;
+    text-align: center; }
   #mobile-content #button {
     color: white;
     display: inline-block;
