@@ -13,8 +13,8 @@ socket.on('desktopReady', function(msg) {
 });
 
 // once someone connects, change the page to the competition view
-socket.on('mobileReady', function(msg) {
-	console.log("here");
+socket.on('mobileReady', function(name) {
+	console.log(name);
 	$('.homepage').hide();
 	$('.compete').show();
 });

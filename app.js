@@ -61,11 +61,13 @@ smashio.sockets.on('connection', function (socket) {
         });     
     });
 
-    socket.on('mobileConnect', function(roomID) {
-        var msg = 'mobile joined the room!';
-        socket.set('roomID', roomID, function(err, roomID) {
+    socket.on('mobileConnect', function(data) {
+        var name = data.username;
+        socket.set('roomID', data.roomID, function(err, roomID) {
             socket.join(roomID) ;
-            socket.broadcast.to(roomID).emit('mobileReady', msg);
+            socket.set('username', name, function(err, username) {
+                socket.broadcast.to(roomID).emit('mobileReady', name);
+            });
         });        
     });
 
