@@ -1,3 +1,7 @@
+* {
+        -webkit-font-smoothing: antialiased;
+}
+
 html {
   height: 100%;
 }
@@ -13,6 +17,21 @@ body {
   background-image: url(../images/squairy_light.png);
   background-repeat:repeat;
   height:100%;
+  text-align: center;
+
+  img {
+    margin: 3% 0%;
+  }
+
+
+  div#session_id {
+    font-size: 4em;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
+    color: #9A15FF;
+    border-radius: 6px;
+    background: #FFFFFF;
+    border: 1px solid #C0C0C0;
+  }
 }
 
 a {

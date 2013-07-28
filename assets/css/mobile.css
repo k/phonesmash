@@ -50,3 +50,7 @@ form {
   font-size: 3em;
   margin-bottom: 3%;
   border: 0; }
+
+#start-session {
+  background-image: url(../images/squairy_light.png);
+  background-repeat: repeat; }
