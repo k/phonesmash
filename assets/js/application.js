@@ -24,9 +24,9 @@ socket.on('mobileReady', function(data) {
 	}
 
 	// give the new user a panel
-	$('.player-list').append('<div class=\"panel player\" id=\'' + data.username + '\'><\/div>');
-	$('#' + data.username).append(data.username);
-	$('#' + data.username).data("time", 0);
+	$('.player-list').append('<div class=\"panel player\" id=\'' + data.username + '\'><h3 id="name"><h3 id="time"><\/div>');
+	$('#' + data.username + ' #name').append(data.username);
+	$('#' + data.username + ' #time').append("0");
 
 });
 
@@ -37,7 +37,6 @@ function compare(a,b) {
     return 1;
   return 0;
 }
-
 
 socket.on('started', function(data) {
 	var start = new Date(),
@@ -66,11 +65,12 @@ socket.on('started', function(data) {
 		$('.panel .player').remove();
 
 		$.each(players, function(index, value) {		
-			$('.player-list').append('<div class=\"panel player\" id=\'' + value.username + '\' data=\'' + data + '\'><\/div>');
-			$('#' + value.username).append(value.username);
+			$('.player-list').append('<div class=\"panel player\" id=\'' + value.username + '\'><h3 id="name"><h3 id="time"><\/div>');
+			$('#' + value.username + ' #name').append(value.username);
+			$('#' + value.username + ' #time').append(value.time);
 		});
 	   
 	});
-    
+
 });
 

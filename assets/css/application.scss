@@ -25,18 +25,12 @@ body {
 
 
   div#session_id {
-    // border-radius: 3em;
-    // background: #D8D8D8;
     font-size: 4em;
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
     color: #9A15FF;
-
     border-radius: 6px;
-
     background: #FFFFFF;
-
     border: 1px solid #C0C0C0;
-
   }
 }
 
@@ -48,13 +42,28 @@ a {
   padding-top: 50px;
 }
 
-.homepage {
-  
-}
 
 .compete {
   display: none;
-  margin-left: 50px;
+  background-image: url(../images/squairy_light.png);
+  background-repeat:repeat;
+  height: 100%;
+  text-align: center;
+
+  div div h3 {
+    line-height: 1em;
+    margin-bottom: 0;
+    margin-top: 5%;
+  }
+
+  #highscore {
+    text-align: center;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
+    font-size: 10em;
+    color: #FFEA2A;
+    margin: 0 0 50px 0;
+    line-height: 1em;
+  }
 }
 
 .player{
