@@ -75,7 +75,7 @@ socket.on('started', function(data) {
 			$('.player-list').append('<div class=\"panel player\" id=\'' + players[i].username + '\'><span class="name"></span><span class="time"></span><\/div>');
 			$('#' + players[i].username + ' .name').append(players[i].username);
 			$('#' + players[i].username + ' .time').append(players[i].time);
-		});
+		}
 	   
 	});
 
