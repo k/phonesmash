@@ -14,10 +14,9 @@ function joinSession(roomID) {
 }
 
 function renderThrowView () {
-
 	$('#start-session').hide();
 	$('#throw').show();
-
+    startUp();
 }
 
 // if join successful, log the success
@@ -27,29 +26,45 @@ socket.on('mobileReady', function(msg) {
 
 
 function startUp() {
-    var el = document.getElementsByTagName("canvas")[0];
-    el.addEventListener("touchstart", handleStart, false);
-    el.addEventListener("touchend", handleEnd, false);
+    //el = document.getElementsByTagName('body')[0];
+    el = $('body');
+    console.log(el);
+    socket.emit('testing', "FUCK");
+    el.bind('touchstart', function (event) {
+        socket.emit('testing', "touch started");
+        $('body').css('background-color', 'blue');
+    }, false);
+    el.bind('touchstart', function (event) {
+        socket.emit('testing', "touch ended");
+        $('body').css('background-color', 'green');
+        measureTime();
+    }, false);
 }
 
-function handleStart() {
+
+function handleStart(event) {
     // change the UI to signify that we have started
+    $('body').css('background-color', 'blue');
     
 }
 
-function handleEnd() {
+function handleEnd(event) {
+    $('body').css('background-color', 'green');
     measureTime();
 }
 
 //    if (window.DeviceMotionEvent !== undefined) {
 
 var stoppingThreshold = 10;
+var stoppingDelta = 5;
 
 function measureTime(){ 
 
     // start time and report startTime
     var startTime = Date.now();
     socket.emit('startTime', startTime);
+    var prevforce = -1;
+    var prevtime = Date.now();
 
     window.ondevicemotion = function(e) {
         ax = event.acceleration.x;
@@ -57,9 +72,12 @@ function measureTime(){
         az = event.acceleration.z;
 
         var force = Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2));
-        socket.emit('testing', force);
+        var now = Date.now();
+        var delta = Math.abs((force - prevforce) / (now - prevtime));
+        socket.emit('testing', 'Force: ' + force);
+        socket.emit('testing', 'Delta: ' + delta);
 
-        if (force > stoppingThreshold) {
+        if (force > stoppingThreshold && delta > stoppingDelta) {
 
             // stop timer, report elapsed and stop collecting data
             var endTime = Date.now();
@@ -68,5 +86,7 @@ function measureTime(){
 
             window.ondevicemotion = null;
         }
+        prevtime = now;
+        prevforce = force;
     };
 }
