@@ -55,25 +55,20 @@ smashio.sockets.on('connection', function (socket) {
 
     socket.on('desktopConnect', function(roomID) {        
         socket.set('roomID', roomID, function() {
-            console.log(roomID);
             if (socket.join(roomID))
                 socket.in(roomID).emit('desktopReady', roomID);    
         });     
     });
 
-    socket.on('checkRoom', function() {
-        socket.get('roomID', function(err, roomID) {
-            socket.in(roomID).emit('getRoomID', roomID);
-        });
-    });
-
     socket.on('mobileConnect', function(data) {
         var name = data.username;
-        socket.set('roomID', data.roomID, function() {
-            socket.join(data.roomID);
-            socket.set('username', name, function() {
-                socket.broadcast.to(data.roomID).emit('mobileReady', data);
-            });
+        var roomID = data.roomID;
+        socket.set('roomID', roomID, function() {
+            if (socket.join(roomID))
+                socket.set('username', name, function() {
+                    console.log(roomID);
+                    socket.broadcast.to(roomID).emit('mobileReady', data);
+                });
         });        
     });
 
@@ -82,11 +77,10 @@ smashio.sockets.on('connection', function (socket) {
             socket.get('username', function (err, username) {
                 console.log(username);
                 var data = {
-                    'roomID': roomID,
                     'username': username,
                     'startTime': startTime
                 };
-                socket.in(roomID).emit('started', data);
+                socket.broadcast.to(roomID).emit('started', data);
             });
         });
     });
@@ -96,11 +90,20 @@ smashio.sockets.on('connection', function (socket) {
             socket.get('username', function (err, username) {
                 console.log(username);
                 var data = {
-                    'roomID': roomID,
                     'username': username,
                     'elapsedTime': elapsedTime
                 };
-                socket.in(roomID).emit('elapsed', data);
+                socket.broadcast.to(roomID).emit('elapsed', data);
+            });
+        });
+    });
+
+    socket.on('disconnect', function() {
+        socket.get('username', function(err, username) {
+            socket.get('roomID', function(err, roomID) {
+                console.log("disconnect");
+                socket.broadcast.to(roomID).emit('user disconnected',
+                    {'roomID': roomID, 'username': username});
             });
         });
     });

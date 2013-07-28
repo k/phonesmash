@@ -20,7 +20,7 @@ body {
   .homepage div#session_id {
     font-size: 4em;
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
-    color: #9A15FF;
+    color: #E81373;
     border-radius: 6px;
     background: #FFFFFF;
     border: 1px solid #C0C0C0;
@@ -43,7 +43,8 @@ a {
   .compete div div h3 {
     line-height: 1em;
     margin-bottom: 0;
-    margin-top: 5%; }
+    margin-top: 5%;
+    color: #FF5B22; }
   .compete #highscore {
     text-align: center;
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
