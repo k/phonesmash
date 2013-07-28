@@ -36,10 +36,14 @@ function startUp() {
 }
 
 function restart() {
-    addEventListeners();
-    $('#throw-text').text('press and hold the screen to begin');
+    removeEventListener();
+
+    // change UI to original state
     $('#throw').css('background-color', '#FF5B22');
+    $('#throw-text').text('press and hold the screen to begin');
     $('#restart-button').hide();
+
+    addEventListeners();
 }
 
 function addEventListeners() {
@@ -50,8 +54,8 @@ function addEventListeners() {
 
 function removeEventListeners() {
     elm = document.getElementById('throw');
-    elm.addEventListener('touchstart', startHandler);
-    elm.addEventListener('touchend', endHandler);
+    elm.removeEventListener('touchstart', startHandler);
+    elm.removeEventListener('touchend', endHandler);
 }
 
 function startHandler(event) {
@@ -114,6 +118,9 @@ function measureTime(){
             $('#throw').css('background-color', '#E89913');
             $('#throw-text').text('your time was: ' + elaspedTime);
             $('#restart-button').show();
+            $('#restart-button').click(function(){
+                restart();
+            });
 
             window.ondevicemotion = null;
         }
