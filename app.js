@@ -64,7 +64,7 @@ smashio.sockets.on('connection', function (socket) {
     socket.on('mobileConnect', function(roomID) {
         var msg = 'mobile joined the room!';
         socket.set('roomID', roomID, function(err, roomID) {
-            socket.join(roomID) ;
+            socket.join(roomID);
             socket.in(roomID).emit('mobileReady', msg);
         });        
     });

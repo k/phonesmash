@@ -16,15 +16,16 @@
     padding: 0 0.12em 0;
     margin-bottom: 75px;
     text-align: center; }
-  #mobile-content #button {
-    color: white;
-    display: inline-block;
-    border-radius: 18em;
-    padding: 1em 1.75em;
-    background-color: green;
-    font-size: 4em;
-    line-height: 5em;
-    border: 0; }
+
+#button {
+  color: white;
+  display: inline-block;
+  border-radius: 18em;
+  padding: 1em 1.75em;
+  background-color: green;
+  font-size: 4em;
+  line-height: 5em;
+  border: 0; }
 
 .throw {
   display: none; }
