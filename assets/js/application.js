@@ -59,12 +59,12 @@ socket.on('started', function(data) {
 		var currentIndex;
 
 		// iterate to find the current players index
-		$.each(players, function(index, value) {		
-			if (value.name === data.name) {
-				currentIndex = index;
+		for(var i = 0; i < player.length; i++) {
+			if (player[i].name === data.name) {
+				currentIndex = i;
 			}
-		});
-
+		}
+		
 		// update the players index
 		players[currentIndex].time = data.elapsedTime;
 
