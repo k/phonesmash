@@ -10,27 +10,37 @@
 form {
   text-align: center;
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica"; }
-  form #session-id {
-    font-size: 3em;
-    height: 1.2em;
-    padding: 0 0.12em 0;
-    margin-bottom: 5%;
-    text-align: center; }
-  form #username {
-    font-size: 2em;
-    height: 1.2em;
-    padding: 0 0.12em 0;
-    margin-bottom: 5%;
-    text-align: center;
-    text-transform: uppercase; }
-  form #button {
-    color: white;
-    display: block;
-    padding: 10% 10%;
-    background-color: #E81373;
-    font-size: 3em;
-    margin-bottom: 3%;
-    border: 0; }
 
-.throw {
+#session-id {
+  font-size: 3em;
+  height: 1.2em;
+  padding: 0 0.12em 0;
+  margin-bottom: 5%;
+  text-align: center; }
+
+#username {
+  font-size: 2em;
+  height: 1.2em;
+  padding: 0 0.12em 0;
+  margin-bottom: 5%;
+  text-align: center;
+  text-transform: uppercase; }
+
+#throw {
+  width: 100%;
+  height: 100%;
+  background-color: #FF5B22;
   display: none; }
+
+#throw-text {
+  color: white;
+  padding: 40px; }
+
+#button {
+  color: white;
+  display: block;
+  padding: 10% 10%;
+  background-color: #E81373;
+  font-size: 3em;
+  margin-bottom: 3%;
+  border: 0; }

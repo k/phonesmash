@@ -15,7 +15,7 @@ function joinSession(roomID, userName) {
 }
 
 function renderThrowView () {
-	$('.start-session').hide();
+	$('#start-session').hide();
 	$('#throw').show();
     startUp();
 }
