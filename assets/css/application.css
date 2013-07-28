@@ -16,8 +16,12 @@ a {
 #throw {
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-color: #FF5B22;
   display: none; }
+
+#throw-text {
+  color: white;
+  padding: 40px; }
 
 .compete {
   display: none; }

@@ -48,11 +48,13 @@ function endHandler(event) {
 }
 
 function holdingUI() {
-    $('#throw').css('background-color', 'blue');
+    $('#throw').css('background-color', '#E81373');
+    $('#throw-text').text('throw phone when ready')
 }
 
 function flyingUI() {
-    $('#throw').css('background-color', 'green');
+    $('#throw').css('background-color', '#9A15FF');
+    $('#throw-text').text('WOOOO!')
 }
 
 var stoppingThreshold = 10;
@@ -87,7 +89,9 @@ function measureTime(){
 
             socket.emit('elaspedTime', elaspedTime);
 
-            $('#throw').css('background-color', 'black');
+            $('#throw').css('background-color', '#E89913');
+            $('#throw-text').text('your time was: ' + elaspedTime)
+
             window.ondevicemotion = null;
         }
         prevtime = now;
