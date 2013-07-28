@@ -1,10 +1,16 @@
-// Insert some stuff
+var socket = io.connect('http://phonesmash.herokuapp.com');
 
-function joinSession(sessionID) {
-	if (sessionID === "") {
-		location.reload();
+// gets called on mobile form submit
+function joinSession(roomID) {
+	if (roomID === "") {
+			location.reload();
 	} else {
-		socket.emit('join', sessionID);
-		console.log("here");
+			// tell the server we want to connect
+			socket.emit('mobileConnect', roomID);
 	}
 };
+
+// if join successful, log the success
+socket.on('mobileReady', function(msg) {
+	console.log(msg);
+});
