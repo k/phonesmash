@@ -16,33 +16,30 @@ a {
   text-align: center;
 
   h1 {
-    font-size: 55pt;
+    font-size: 5em;
   }
 }
 
 #mobile-content {
   text-align: center;
   
-  div#form {
-    // border: solid red 3px;
-    height: 200px;
-    input {
-      font-size: 110pt;
-      font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
-      height: 1.2em;
-      padding: 0px 20px 10px;
-    }
-    
+  #session_submit {
+    font-size: 11em;
+    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+    height: 1.2em;
+    padding: 0 0.12em 0;
+    margin-bottom: 75px;
   }
 
-  a {
+  #button {
+    color: white;
     display: inline-block;
-    border-radius: 40px;
-    padding: 30px 15px;
+    border-radius: 8em;
+    padding: 3em 3.8em;
     background-color: green;
-    font-size: 0.8em;
-    line-height: 1.2em;
-    float: right;
+    font-size: 1em;
+    line-height: 5em;
+    border: 0;
   }
   
 }
