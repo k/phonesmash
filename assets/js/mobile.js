@@ -29,17 +29,16 @@ socket.on('mobileReady', function(msg) {
 
 
 function startUp() {
-    //el = document.getElementsByTagName('body')[0];
-    el = document.getElementById('throw');
+    el = document.getElementByClass('throw');
     el.addEventListener('touchstart', function (event) {
         socket.emit('testing', "touch started");
         event.preventDefault();
-        $('#throw').css('background-color', 'blue');
+        $('.throw').css('background-color', 'blue');
     }, false);
     el.addEventListener('touchend', function (event) {
         socket.emit('testing', "touch ended");
         event.preventDefault();
-        $('#throw').css('background-color', 'green');
+        $('.throw').css('background-color', 'green');
         measureTime();
     }, false);
 }

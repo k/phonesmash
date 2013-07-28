@@ -13,14 +13,10 @@ a {
 #title {
   padding-top: 50px; }
 
-<<<<<<< Updated upstream
 .throw {
-=======
-#throw {
   width: 100%;
   height: 100%;
   background-color: red;
->>>>>>> Stashed changes
   display: none; }
 
 .compete {
