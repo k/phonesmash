@@ -32,9 +32,26 @@ function startUp() {
     $('#start-session').hide();
     $('#throw').show(); 
     
+    addEventListeners();
+}
+
+function restart() {
+    addEventListeners();
+    $('#throw-text').text('press and hold the screen to begin');
+    $('#throw').css('background-color', '#FF5B22');
+    $('#restart-button').hide();
+}
+
+function addEventListeners() {
     elm = document.getElementById('throw');
     elm.addEventListener('touchstart', startHandler, false);
     elm.addEventListener('touchend', endHandler, false);
+}
+
+function removeEventListeners() {
+    elm = document.getElementById('throw');
+    elm.addEventListener('touchstart', startHandler);
+    elm.addEventListener('touchend', endHandler);
 }
 
 function startHandler(event) {
@@ -58,6 +75,7 @@ function holdingUI() {
 function flyingUI() {
     $('#throw').css('background-color', '#9A15FF');
     $('#throw-text').text('WOOOO!');
+    removeEventListeners();
 }
 
 var stoppingThreshold = 5;
@@ -95,6 +113,7 @@ function measureTime(){
 
             $('#throw').css('background-color', '#E89913');
             $('#throw-text').text('your time was: ' + elaspedTime);
+            $('#restart-button').show();
 
             window.ondevicemotion = null;
         }
