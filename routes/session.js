@@ -6,6 +6,6 @@ exports.index = function(req, res) {
 
 // once on mobile view, user posts session data here
 exports.verify = function(req, res) {
-	res.send(req.body);
+	res.render('smash');
 }
 

@@ -10,8 +10,9 @@ block content
   div.row
     div.small-8.small-centered.columns#mobile-content
       div#form
-        input(type="text", name="name", placeholder="0000", id="session_submit")
-      div#button
-        a(href="#", onclick="joinSession($('#session_submit').val())") SMASH
+      	form(method="post", action="start/verify")
+        	input(type="text", name="name", placeholder="0000", id="session_submit")
+				  div#button
+				    input(action="submit" onclick="joinSession($('#session_submit').val())") SMASH
 
   script(type="text/javascript", src="assets/js/mobile.js")
