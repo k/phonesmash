@@ -1,4 +1,4 @@
-var socket = io.connect('http://phonesmash.herokuapp.com');
+var socket = io.connect('/');
 
 // gets called on mobile form submit
 function joinSession(roomID) {

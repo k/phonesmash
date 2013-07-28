@@ -12,13 +12,13 @@ a {
 
 #mobile-content {
   text-align: center; }
-  #mobile-content input {
+  #mobile-content input#numbers {
     font-size: 11em;
     font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
     height: 1.2em;
     padding: 0 0.12em 0;
     margin-bottom: 75px; }
-  #mobile-content a {
+  #mobile-content input#button {
     color: white;
     display: inline-block;
     border-radius: 8em;
