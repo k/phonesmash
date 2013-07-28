@@ -5,6 +5,9 @@ body {
 a {
   color: blue; }
 
+#starter {
+  border: 1px solid #000000; }
+
 #header {
   text-align: center; }
 
