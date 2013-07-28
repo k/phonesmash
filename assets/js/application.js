@@ -59,8 +59,8 @@ socket.on('started', function(data) {
 		var currentIndex;
 
 		// iterate to find the current players index
-		for(var i = 0; i < player.length - 1; i++) {
-			if (player[i].name === data.name) {
+		for(var i = 0; i < players.length; i++) {
+			if (players[i].name === data.name) {
 				currentIndex = i;
 			}
 		}
