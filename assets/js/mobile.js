@@ -27,14 +27,13 @@ socket.on('mobileReady', function(msg) {
 
 function startUp() {
     //el = document.getElementsByTagName('body')[0];
-    el = $('body');
-    console.log(el);
+    el = document.getElementById('starter');
     socket.emit('testing', "FUCK");
-    el.bind('touchstart', function (event) {
+    el.addEventListener('touchstart', function (event) {
         socket.emit('testing', "touch started");
         $('body').css('background-color', 'blue');
     }, false);
-    el.bind('touchstart', function (event) {
+    el.addEventListener('touchend', function (event) {
         socket.emit('testing', "touch ended");
         $('body').css('background-color', 'green');
         measureTime();
@@ -56,7 +55,7 @@ function handleEnd(event) {
 //    if (window.DeviceMotionEvent !== undefined) {
 
 var stoppingThreshold = 10;
-var stoppingDelta = 5;
+var stoppingDelta = 0.15;
 
 function measureTime(){ 
 
@@ -84,6 +83,7 @@ function measureTime(){
             var elaspedTime = endTime - startTime;
             socket.emit('elaspedTime', elaspedTime);
 
+            $('body').css('background-color', 'green');
             window.ondevicemotion = null;
         }
         prevtime = now;
