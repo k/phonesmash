@@ -37,6 +37,7 @@ socket.on('mobileReady', function(data) {
 
 });
 
+
 function compare(a,b) {
   if (a.time < b.time)
      return 1;
@@ -68,6 +69,7 @@ socket.on('started', function(data) {
 		}
 
 		players = players.sort(compare);
+		$('#highscore').text(players[0].time)
 
 		$('.panel.player').remove();
 
