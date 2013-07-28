@@ -54,7 +54,7 @@ socket.on('started', function(data) {
 	socket.on('elapsed', function(data) {
 		clearInterval(timer);
 
-		// $('#' + data.username).find('.time').text(data.elapsedTime);    				
+		$('#' + data.username).find('.time').text(data.elapsedTime);    				
 
 		// var currentIndex;
 
