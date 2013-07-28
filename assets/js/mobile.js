@@ -7,7 +7,7 @@ function joinSession(roomID, userName) {
 		location.reload();
 	} else {
 		// tell the server we want to connect
-		socket.emit('mobileConnect', roomID);
+		socket.emit('mobileConnect', {'roomID': roomID, 'username': userName});
 
         // TODO: do something with userName
 
