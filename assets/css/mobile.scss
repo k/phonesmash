@@ -1,38 +1,36 @@
 #header {
   text-align: center;
-
-  h1 {
-    font-size: 8em;
-    line-height: 1em;
+  img {
+    margin-top: 3%;
+    margin-bottom: 5%;
   }
 
   p {
-    font-size: 3em;
+    font-size: 1em;
     line-height: 0.02em;
   }
 }
 
-#mobile-content {
+form {
   text-align: center;
-  
-  #session-id {
-    font-size: 8em;
-    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
-    height: 1.2em;
-    padding: 0 0.12em 0;
-    margin-bottom: 75px;
-    text-align: center;
-  }
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Helvetica";
+}
 
-  #username {
-    font-size: 8em;
-    font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
-    height: 1.2em;
-    padding: 0 0.12em 0;
-    margin-bottom: 75px;
-    text-align: center;
-  }
-  
+#session-id {
+  font-size: 3em;
+  height: 1.2em;
+  padding: 0 0.12em 0;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+#username {
+  font-size: 2em;
+  height: 1.2em;
+  padding: 0 0.12em 0;
+  margin-bottom: 5%;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 #throw {
@@ -55,25 +53,21 @@
   color: #FF0000;
 }
 
+
 #button {
   color: white;
-  display: inline-block;
+  display: block;
   // might need this for mobile safari...
   // -webkit-appearance: button;
-  border-radius: 18em;
-  padding: 1em 1.75em;
-  background-color: green;
-  font-size: 4em;
-  line-height: 5em;
+  padding: 10% 10%;
+  background-color: #E81373;
+  font-size: 3em;
+  margin-bottom: 3%;
   border: 0;
 }
 
-.start-session {
+
+#start-session {
   
 }
-
-.throw {
-  display: none;
-}
-
 

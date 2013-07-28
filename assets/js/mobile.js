@@ -11,9 +11,12 @@ function joinSession(roomID, userName) {
         // tell the server we want to connect
   socket.emit('mobileConnect', {'roomID': roomID, 'username': userName});
 
-  socket.on('mobileReady', function(data) {
-    startUp(data);
-  });
+  data = {
+    'roomID' : roomID,
+    'username' : userName
+  }
+
+  startUp(data);
 
         // show throw ID and continue
 
@@ -25,14 +28,13 @@ function joinSession(roomID, userName) {
     // });
 }
 
-
 function renderConnectionError() {
     $('#errors').show();
 }
 
 function startUp(data) {
 
-    $('.start-session').hide();
+    $('#start-session').hide();
     $('#throw').show(); 
     
     elm = document.getElementById('throw');
@@ -61,11 +63,11 @@ function holdingUI() {
 
 function flyingUI() {
     $('#throw').css('background-color', '#9A15FF');
-    $('#throw-text').text('WOOOO!')
+    $('#throw-text').text('WOOOO!');
 }
 
-var stoppingThreshold = 10;
-var stoppingDelta = 0.3;
+var stoppingThreshold = 5;
+var stoppingDelta = 0.25;
 
 function measureTime(){ 
 
@@ -76,28 +78,29 @@ function measureTime(){
     var prevtime = Date.now();
 
     window.ondevicemotion = function(e) {
-        ax = event.acceleration.x;
-        ay = event.acceleration.y;
-        az = event.acceleration.z;
+        ax = event.accelerationIncludingGravity.x;
+        ay = event.accelerationIncludingGravity.y;
+        az = event.accelerationIncludingGravity.z;
 
         var force = Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2));
         var now = Date.now();
+        if (prevforce == -1) prevforce = force;
         var delta = Math.abs((force - prevforce) / (now - prevtime));
         socket.emit('testing', 'Force: ' + force);
         socket.emit('testing', 'Delta: ' + delta);
+        socket.emit('testing', 'stoppingDelta: ' + stoppingDelta);
 
-        if (force > stoppingThreshold && delta > stoppingDelta) {
+        if (delta > stoppingDelta) {
 
             // stop timer, report elapsed and stop collecting data
             var endTime = Date.now();
             var elaspedTime = endTime - startTime;
             
             socket.emit('testing', "time" + elaspedTime);
-
             socket.emit('elaspedTime', elaspedTime);
 
             $('#throw').css('background-color', '#E89913');
-            $('#throw-text').text('your time was: ' + elaspedTime)
+            $('#throw-text').text('your time was: ' + elaspedTime);
 
             window.ondevicemotion = null;
         }

@@ -9,6 +9,12 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+.homepage {
+  background-image: url(../images/squairy_light.png);
+  background-repeat:repeat;
+  height:100%;
+}
+
 a {
   color: blue;
 }
@@ -23,12 +29,10 @@ a {
 
 .compete {
   display: none;
+  margin-left: 50px;
 }
 
 .player{
   width: 500px;
 }
 
-.compete {
-  margin-left: 50px;
-}

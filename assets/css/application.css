@@ -7,6 +7,11 @@ body {
   font: "Lucida Grande", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%; }
 
+.homepage {
+  background-image: url(../images/squairy_light.png);
+  background-repeat: repeat;
+  height: 100%; }
+
 a {
   color: blue; }
 
@@ -14,10 +19,8 @@ a {
   padding-top: 50px; }
 
 .compete {
-  display: none; }
+  display: none;
+  margin-left: 50px; }
 
 .player {
   width: 500px; }
-
-.compete {
-  margin-left: 50px; }
