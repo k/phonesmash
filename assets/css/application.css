@@ -32,4 +32,8 @@ a {
   padding-top: 50px; }
 
 .compete {
-  display: none; }
+  display: none;
+  margin-left: 50px; }
+
+.player {
+  width: 500px; }

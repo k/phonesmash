@@ -45,6 +45,15 @@ form {
   padding:40px;
 }
 
+#errors {
+  display: none;
+}
+
+#errors-text {
+  color: #FF0000;
+}
+
+
 #button {
   color: white;
   display: block;

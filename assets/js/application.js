@@ -1,7 +1,7 @@
-var socket = io.connect('/');
+var socket = io.connect('/'),
+		roomID = Math.round(Math.random()*6969).toString(),  // create a random session ID 
+		players = {};
 
-// create a random session ID and append it to the DOM
-var roomID = Math.round(Math.random()*6969).toString();
 $('#session_id').append(roomID);
 
 // tell server that we want to join
@@ -11,8 +11,6 @@ socket.emit('desktopConnect', roomID);
 socket.on('desktopReady', function(msg) {
 	console.log(msg);
 });
-
-var players = {}
 
 // once someone connects, change the page to the competition view
 socket.on('mobileReady', function(data) {
@@ -26,14 +24,10 @@ socket.on('mobileReady', function(data) {
 	}
 
 	// give the new user a panel
-	$('.compete').append('<div class=\"panel\" id=\'' + data.username + '\' data=\'' + data + '\'><\/div>');
-
+	$('.compete').append('<div class=\"panel player\" id=\'' + data.username + '\' data=\'' + data + '\'><\/div>');
 	$('#' + data.username).append(data.username);
 
-	
-	
 });
-
 
 socket.on('started', function(time) {
     // update UI
