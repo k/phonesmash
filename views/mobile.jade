@@ -8,9 +8,11 @@ block content
 
   div.row
     div.small-8.small-centered.columns#mobile-content
-      form(method="post", action="start/verify")
-        input#numbers(type="text", name="name", placeholder="0000", id="session_submit")
-        input#button(action="submit", onclick="joinSession($('#session_submit').val())") SMASH
+      div#form
+        form(method="post", action="start/verify")
+          input(type="text", name="name", placeholder="0000", id="session_submit")   
+          div#button       
+            input(type="submit", onclick="joinSession($('#session_submit').val())") 
 
 
   script(type="text/javascript", src="assets/js/mobile.js")
