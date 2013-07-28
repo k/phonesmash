@@ -1,13 +1,17 @@
 var socket = io.connect('/');
 
 // gets called on mobile form submit
-function joinSession(roomID) {
+function joinSession(roomID, userName) {
 	// TODO fix this
 	if (roomID === "") {
 		location.reload();
 	} else {
 		// tell the server we want to connect
 		socket.emit('mobileConnect', roomID);
+
+        // TODO: do something with userName
+
+        // TODO: if first connection
 		renderThrowView();
 	}
 }
