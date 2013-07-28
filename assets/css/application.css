@@ -23,8 +23,8 @@ a {
   #mobile-content #button {
     color: white;
     display: inline-block;
-    display: -webkit-inline-box;
-    -webkit-border-radius: 8em;
+    -webkit-appearance: button;
+    border-radius: 8em;
     padding: 3em 3.8em;
     background-color: green;
     font-size: 1em;
