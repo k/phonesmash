@@ -60,7 +60,7 @@ socket.on('started', function(data) {
 
 		// iterate to find the current players index
 		for(var i = 0; i < players.length; i++) {
-			if (players[i].name === data.username) {
+			if (players[i].username === data.username) {
 				players[i]['time'] = data.elapsedTime;
 			}
 		}
