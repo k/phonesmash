@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -31,6 +32,7 @@ a {
   #button {
     color: white;
     display: inline-block;
+    display: -webkit-inline-box;
     -webkit-border-radius: 8em;
     padding: 3em 3.8em;
     background-color: green;
