@@ -2,18 +2,21 @@ extends layout
 
 block content
 
-	div.homepage
-		h1 phonesma.sh
-		h4 Session ID:
-		div#session_id
-
-	div.compete
-		h1 Compete!
-		h4 Session ID:
-		div#session_id
-
-	script(type="text/javascript", src="assets/js/application.js")
+  div.homepage
+    img(src="../assets/images/phonesmash_logo.png")
+    p Play with your friends by accessing the site on your iPhone and typing in the session ID.
+    h4 Session ID:
+    div.row
+      div.large-3.large-centered.columns
+        div#session_id
 
 
+  div.compete
+    h1 Compete!
+    h4 Session ID:
+    div#session_id
 
+    div.panel
+      h2 sweet
 
+  script(type="text/javascript", src="assets/js/application.js")  
