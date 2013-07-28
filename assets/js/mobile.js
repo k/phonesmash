@@ -8,7 +8,7 @@ function joinSession(roomID) {
 		// tell the server we want to connect
 		socket.emit('mobileConnect', roomID);
 	}
-};
+}
 
 // if join successful, log the success
 socket.on('mobileReady', function(msg) {
@@ -47,6 +47,7 @@ function measureTime(){
         az = event.acceleration.z;
 
         var force = Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2));
+        socket.emit('testing', force);
 
         if (force > stoppingThreshold) {
 
@@ -57,5 +58,5 @@ function measureTime(){
 
             window.ondevicemotion = null;
         }
-    }
+    };
 }

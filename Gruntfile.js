@@ -5,8 +5,10 @@ module.exports = function(grunt){
         nodemon: {
             prod: {
                 options: {
-                  file: 'app.js',
+                  file: 'app.js', 
                   ignoredFiles: ['README.md', 'node_modules/**'],
+                  watchedExtensions: ['js', 'coffee'],
+                  watchedFolders: ['assets/js'],
                 }
             },
         },
