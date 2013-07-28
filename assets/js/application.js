@@ -24,7 +24,7 @@ socket.on('mobileReady', function(data) {
 	}
 
 	// give the new user a panel
-	$('.player-list').append('<div class=\"panel player\" id=\'' + data.username + '\'><h3 id="name"><h3 id="time"><\/div>');
+	$('.player-list').append('<div class=\"panel player\" id=\'' + data.username + '\'><span id="name"><span id="time"><\/div>');
 	$('#' + data.username + ' #name').append(data.username);
 	$('#' + data.username + ' #time').append("0");
 
@@ -41,7 +41,7 @@ function compare(a,b) {
 socket.on('started', function(data) {
 	var start = new Date(),
 			timer = setTimeout(function() {
-				$('#' + data.username).data("time", new Date() - start);    
+				$('#' + data.username).attr("#time", new Date() - start);    
 
 			}, 100);
 
@@ -65,7 +65,7 @@ socket.on('started', function(data) {
 		$('.panel .player').remove();
 
 		$.each(players, function(index, value) {		
-			$('.player-list').append('<div class=\"panel player\" id=\'' + value.username + '\'><h3 id="name"><h3 id="time"><\/div>');
+			$('.player-list').append('<div class=\"panel player\" id=\'' + value.username + '\'><span id="name"><span id="time"><\/div>');
 			$('#' + value.username + ' #name').append(value.username);
 			$('#' + value.username + ' #time').append(value.time);
 		});
