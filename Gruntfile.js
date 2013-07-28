@@ -5,8 +5,10 @@ module.exports = function(grunt){
         nodemon: {
             prod: {
                 options: {
-                  file: 'app.js',
+                  file: 'app.js', 
                   ignoredFiles: ['README.md', 'node_modules/**'],
+                  watchedExtensions: ['js', 'coffee'],
+                  watchedFolders: ['assets/js'],
                 }
             },
         },
@@ -16,7 +18,8 @@ module.exports = function(grunt){
         sass: {
             dist: {
                 files: {
-                    'assets/css/application.css': 'assets/css/application.scss'
+                    'assets/css/application.css': 'assets/css/application.scss',
+                    'assets/css/smash.css': 'assets/css/smash.scss'
                 }
             }
         }

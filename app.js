@@ -30,7 +30,6 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/start', session.index);
-app.post('/start/verify', session.verify);
 
 function handler (req, res) {
     fs.readfile(__direname  + '/index.html',
@@ -56,15 +55,33 @@ smashio.sockets.on('connection', function (socket) {
 
     socket.on('desktopConnect', function(roomID) {
         var msg = 'desktop joined the room!';
-        if (socket.join(roomID)) {
+        socket.set('roomID', roomID, function(err, roomID) {
+            socket.join(roomID);
             socket.in(roomID).emit('desktopReady', msg);    
-        }        
+        });     
     });
 
     socket.on('mobileConnect', function(roomID) {
         var msg = 'mobile joined the room!';
-        if (socket.join(roomID)) {
+        socket.set('roomID', roomID, function(err, roomID) {
+            socket.join(roomID) ;
             socket.in(roomID).emit('mobileReady', msg);
-        }        
+        });        
+    });
+
+    socket.on('startTime', function(time) {
+        socket.get('roomID', function (err, roomID) {
+            socket.in(roomID).emit('started', time);
+        });
+    });
+
+    socket.on('elapsedTime', function(time) {
+        socket.get('roomID', function (err, roomID) {
+            socket.in(roomID).emit('elapsed', time);
+        });
+    });
+
+    socket.on('testing', function(data) {
+        console.log(data);
     });
 });

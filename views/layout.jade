@@ -8,11 +8,6 @@ html
     link(rel='stylesheet', href='assets/css/application.css')    
     script(type="text/javascript", src="assets/js/jquery-1.10.2.min.js") 
     script(type="text/javascript", src="socket.io/socket.io.js") 
-    script.
-      var socket = io.connect('/');
-      socket.on('news', function (data) {
-        console.log(data);
-        socket.emit('my other event', { my: 'data' });
-      });
+
   body
     block content

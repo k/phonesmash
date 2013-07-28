@@ -1,17 +1,22 @@
 extends layout
 
 block content
-  div.row
-    div.small-12.small-centered.columns#header
-      h1 phonesma.sh 
-      p Enter your session ID below.
 
-  div.row
-    div.small-8.small-centered.columns#mobile-content
-      div
-        form(method="post", action="start/verify")
-          input(type="text", name="name", placeholder="0000", id="session_submit")      
-          input(type="submit", value="SMASH", id="button", onclick="joinSession($('#session_submit').val())")
+  div#start-session
+    div.row
+      div.small-12.small-centered.columns#header
+        h1 phonesma.sh 
+        p Enter your session ID below.
 
+    div.row
+      div.small-8.small-centered.columns#mobile-content
+        input(type="text", name="name", placeholder="0000", id="session_submit")      
+        div(id="button", onclick="joinSession($('#session_submit').val())") SMASH
+
+
+  div#throw
+    canvas#starter Sweet
 
   script(type="text/javascript", src="assets/js/mobile.js")
+
+
