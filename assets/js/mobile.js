@@ -30,30 +30,18 @@ socket.on('mobileReady', function(msg) {
 
 function startUp() {
     //el = document.getElementsByTagName('body')[0];
-    el = document.getElementById('starter');
+    el = document.getElementById('throw');
     el.addEventListener('touchstart', function (event) {
         socket.emit('testing', "touch started");
         event.preventDefault();
-        $('body').css('background-color', 'blue');
+        $('#throw').css('background-color', 'blue');
     }, false);
     el.addEventListener('touchend', function (event) {
         socket.emit('testing', "touch ended");
         event.preventDefault();
-        $('body').css('background-color', 'green');
+        $('#throw').css('background-color', 'green');
         measureTime();
     }, false);
-}
-
-
-function handleStart(event) {
-    // change the UI to signify that we have started
-    $('body').css('background-color', 'blue');
-    
-}
-
-function handleEnd(event) {
-    $('body').css('background-color', 'green');
-    measureTime();
 }
 
 //    if (window.DeviceMotionEvent !== undefined) {

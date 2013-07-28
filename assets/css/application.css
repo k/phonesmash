@@ -1,15 +1,26 @@
+html {
+  height: 100%; }
+
 body {
-  padding: 50px;
+  width: 100%;
+  height: 100%;
   font: "Lucida Grande", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%; }
 
 a {
   color: blue; }
 
-#starter {
-  background-color: red; }
+#title {
+  padding-top: 50px; }
 
+<<<<<<< Updated upstream
 .throw {
+=======
+#throw {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+>>>>>>> Stashed changes
   display: none; }
 
 .compete {
