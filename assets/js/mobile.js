@@ -79,7 +79,7 @@ function measureTime(){
         socket.emit('testing', 'Delta: ' + delta);
         socket.emit('testing', 'stoppingDelta: ' + stoppingDelta);
 
-        if (delta > stoppingDelta  && delta < stoppingDelta * 5) {
+        if (delta > stoppingDelta) {
 
             // stop timer, report elapsed and stop collecting data
             var endTime = Date.now();
