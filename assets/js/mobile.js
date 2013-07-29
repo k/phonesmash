@@ -102,9 +102,6 @@ function measureTime(){
         var now = Date.now();
         if (prevforce == -1) prevforce = force;
         var delta = Math.abs((force - prevforce) / (now - prevtime));
-        socket.emit('testing', 'Force: ' + force);
-        socket.emit('testing', 'Delta: ' + delta);
-        socket.emit('testing', 'stoppingDelta: ' + stoppingDelta);
 
         if (delta > stoppingDelta) {
 
@@ -112,7 +109,6 @@ function measureTime(){
             var endTime = Date.now();
             var elaspedTime = endTime - startTime;
             
-            socket.emit('testing', "time" + elaspedTime);
             socket.emit('elapsedTime', elaspedTime);
 
             $('#throw').css('background-color', '#E89913');
