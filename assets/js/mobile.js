@@ -59,13 +59,14 @@ function removeEventListeners() {
 }
 
 function startHandler(event) {
-    socket.emit('testing', "touch started");
+    window.ondevicemotion = function(event) {
+        console.log("Prelaunch");
+    }
     event.preventDefault();
     holdingUI();
 }
 
 function endHandler(event) {
-    socket.emit('testing', "touch ended");
     event.preventDefault();
     measureTime();
     flyingUI();
@@ -82,8 +83,10 @@ function flyingUI() {
     removeEventListeners();
 }
 
-var stoppingThreshold = 5;
-var stoppingDelta = 0.25;
+var stoppingThreshold = 3;
+var stoppingDelta = 0.2;
+var minTime = 200;
+var rotMin = 500;
 
 function measureTime(){ 
 
@@ -92,18 +95,30 @@ function measureTime(){
     socket.emit('startTime', startTime);
     var prevforce = -1;
     var prevtime = Date.now();
+    var check = false;
 
     window.ondevicemotion = function(e) {
-        ax = event.accelerationIncludingGravity.x;
-        ay = event.accelerationIncludingGravity.y;
-        az = event.accelerationIncludingGravity.z;
+        ax = event.acceleration.x;
+        ay = event.acceleration.y;
+        az = event.acceleration.z;
+        gx = event.accelerationIncludingGravity.x;
+        gy = event.accelerationIncludingGravity.y;
+        gz = event.accelerationIncludingGravity.z;
+        rx = event.rotationRate.alpha;
+        ry = event.rotationRate.beta;
+        rz = event.rotationRate.gamma;
 
         var force = Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2));
+        var gforce = Math.sqrt(Math.pow(gx, 2) + Math.pow(gy, 2) + Math.pow(gz, 2));
+        var rot = Math.sqrt(Math.pow(rx, 2) + Math.pow(ry, 2) + Math.pow(rz, 2));
         var now = Date.now();
-        if (prevforce == -1) prevforce = force;
-        var delta = Math.abs((force - prevforce) / (now - prevtime));
+        var delta = now - prevtime;
+        if (prevforce == -1) prevforce = gforce;
+        var jerk = Math.abs((gforce - prevforce) / (delta));
+        // socket.emit('testing', "F: " + force + "\nGF:" + gforce +  "\nJ:" + jerk + "\nR:" + rot);
 
-        if (delta > stoppingDelta) {
+        if (now - startTime > minTime && ((jerk > stoppingDelta && rot < rotMin) 
+                    || (force < stoppingThreshold && check))) {
 
             // stop timer, report elapsed and stop collecting data
             var endTime = Date.now();
@@ -120,6 +135,7 @@ function measureTime(){
 
             window.ondevicemotion = null;
         }
+        if (force < stoppingThreshold) check = true;
         prevtime = now;
         prevforce = force;
     };

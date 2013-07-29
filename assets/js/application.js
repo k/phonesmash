@@ -8,6 +8,7 @@ socket.on('user disconnected', function(data) {
     // remove user from data.username
     $('#'+data.username).remove();
     console.log(data);
+    players[data.username] = null;
 });
 
 // tell server that we want to join
