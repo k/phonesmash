@@ -3,14 +3,19 @@ extends layout
 block content
 
   | <a href="https://github.com/thekenner33/phonesmash"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  | <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://phonesma.sh" data-text="Smash your phone:" >Tweet</a>
+  |<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  |<div id="fb" class="fb-like" data-href="http://phonesma.sh" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+  | <a id="applecare" href="http://www.apple.com/support/applecare/">Applecare</a>,  
   div.homepage
     img(src="../assets/images/phonesmash_logo.png")
-    p play with your friends by accessing the site on your iPhone and typing in the session ID.
+    p load this page on your iPhone and type in the session ID below
     h4 session ID:
     div.row
       div.large-3.large-centered.columns
         div#session_id
     div#footer
+
       p#byline handcrafted by
         | <a href="https://github.com/s-mcqueen">Sean M</a>,  
         | <a href="https://github.com/thekenner33">  Kenny B</a>,  
