@@ -78,14 +78,14 @@ a {
 .twitter-share-button {
   position: fixed;
   top: 10px;
-  right: 0px; }
+  left: 10px; }
 
 #fb {
   position: fixed;
   top: 10px;
-  right: 120px; }
+  left: 100px; }
 
 #applecare {
   position: fixed;
   top: 12px;
-  right: 208px; }
+  left: 186px; }
